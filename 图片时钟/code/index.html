@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片时钟</title>
+    <style>
+        .show img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show">
+        <img src="../assets/0.png" alt="">
+        <img src="../assets/0.png" alt="">
+        <img src="../assets/colon.png" alt="">
+        <img src="../assets/0.png" alt="">
+        <img src="../assets/0.png" alt="">
+        <img src="../assets/colon.png" alt="">
+        <img src="../assets/0.png" alt="">
+        <img src="../assets/0.png" alt="">
+    </div>
+
+    <script>
+        function getTime() {
+            const nowDate = new Date();
+            const nowHour = changeNum(nowDate.getHours()).toString();
+            const nowMinute = changeNum(nowDate.getMinutes()).toString();
+            const nowSecond = changeNum(nowDate.getSeconds()).toString();
+
+            // const img_1 = document.querySelector('.show img:nth-child(1)');
+            // const img_2 = document.querySelector('.show img:nth-child(2)');
+            // const img_4 = document.querySelector('.show img:nth-child(4)');
+            // const img_5 = document.querySelector('.show img:nth-child(5)');
+            // const img_7 = document.querySelector('.show img:nth-child(7)');
+            // const img_8 = document.querySelector('.show img:nth-child(8)');
+
+            // img_1.src = `../assets/${nowHour[0]}.png`
+            // img_2.src = `../assets/${nowHour[1]}.png`
+            // img_4.src = `../assets/${nowMinute[0]}.png`
+            // img_5.src = `../assets/${nowMinute[1]}.png`
+            // img_7.src = `../assets/${nowSecond[0]}.png`
+            // img_8.src = `../assets/${nowSecond[1]}.png`
+
+            //方法二更紧凑一些
+            const imgs = document.querySelector('.show').getElementsByTagName('img');
+            const allDate = nowHour + ':' + nowMinute + ':' + nowSecond;
+            for (let i = 0; i < imgs.length; i++) {
+                if (i == 2 || i == 5) {
+                    continue;
+                }
+                imgs[i].src = "../assets/" + allDate.charAt(i) + ".png"
+                // imgs[i].src = `../assets/${allDate[i]}.png`
+            }
+        }
+        function changeNum(num) {
+            return (num >= 0 && num < 10) ? "0" + num : num;
+        };
+
+        // 定时器复用
+        setInterval(getTime, 1000)
+
+    </script>
+</body>
+
+</html>

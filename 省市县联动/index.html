@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>省市联动</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* 使用更好看的字体 */
+            padding: 20px;
+            /* 增加一些到窗口的间隙 */
+        }
+
+        select {
+            width: 200px;
+            /* 设置下拉框的宽度 */
+            padding: 10px;
+            /* 增加内填充，让下拉框更高一些，更容易点击 */
+            margin-top: 10px;
+            /* 增加一些上边距 */
+            border-radius: 5px;
+            /* 边框圆角让下拉框看起来不那么生硬 */
+            border: 1px solid #ccc;
+            /* 较轻的边框颜色让它更现代化 */
+            appearance: none;
+            /* 移除原生外观 */
+            -webkit-appearance: none;
+            /* 也为webkit浏览器移除原生外观 */
+            -moz-appearance: none;
+            /* 也为Mozilla浏览器移除原生外观 */
+            background-color: #f8f8f8;
+            /* 轻微的背景颜色 */
+            cursor: pointer;
+            /* 将鼠标指针改变为点击手势，提醒用户这是一个可以交互的元素 */
+        }
+
+        select:hover {
+            border-color: #888;
+            /* 当鼠标悬停时，边框颜色变深 */
+        }
+
+        select:focus {
+            outline: none;
+            /* 移除聚焦时的轮廓 */
+            border-color: #555;
+            /* 聚焦时边框颜色更深，提高用户的注意力 */
+        }
+    </style>
+</head>
+
+<body>
+    <select onchange="queryCity(this.value)">
+        <option value="0">--请选择--</option>
+        <option value="山东省">山东省</option>
+        <option value="河南省">河南省</option>
+        <option value="湖南省">湖南省</option>
+        <option value="湖北省">湖北省</option>
+        <option value="广东省">广东省</option>
+        <option value="山西省">山西省</option>
+    </select>
+
+    <select id="cityInfo" oninput="queryCounty(this.value)"></select>
+
+    <select id="countyInfo" on></select>
+
+    <script>
+        let currentProvince = '';
+        function queryCity(province) {
+            currentProvince = province;
+            axios({
+                url: 'http://hmajax.itheima.net/api/city',
+                params: {
+                    pname: province
+                }
+            }).then(result => {
+                // console.log(result.data);
+                const cityInfo = document.getElementById('cityInfo');
+                //有内容就清空
+                if (cityInfo.options.length !== 0) cityInfo.innerHTML = ''
+                for (let i = 0; i < result.data.list.length; i++) {
+                    let option = document.createElement('option');
+                    option.innerHTML = result.data.list[i];
+                    cityInfo.appendChild(option);
+                }
+                // 预加载第一个市的县级信息，否则感觉不太智能
+                queryCounty(result.data.list[0]);
+            })
+        }
+
+        function queryCounty(city) {
+            axios({
+                url: 'http://hmajax.itheima.net/api/area',
+                params: {
+                    pname: currentProvince,
+                    cname: city
+                }
+            }).then(result => {
+                console.log(result.data);
+                const countyInfo = document.getElementById('countyInfo');
+                //有内容就清空
+                if (countyInfo.options.length !== 0) countyInfo.innerHTML = ''
+                for (let i = 0; i < result.data.list.length; i++) {
+                    let option = document.createElement('option');
+                    option.innerHTML = result.data.list[i];
+                    countyInfo.appendChild(option);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
