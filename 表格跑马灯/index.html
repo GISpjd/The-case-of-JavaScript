@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格跑马灯</title>
+    <style>
+        div {
+            width: 200px;
+            height: 150px;
+            overflow: auto;
+            /* 使用auto而不是scroll以避免总是显示滚动条 */
+            border: 1px solid #ccc;
+            /* 可选，增加边框看起来更清晰 */
+        }
+
+        table {
+            border-collapse: collapse;
+            /* 折叠边框 */
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid aquamarine;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            /* 给表头添加背景色 */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>工资</th>
+            </thead>
+            <tbody class="scrollArea">
+                <tr>
+                    <td>再说吧</td>
+                    <td>22</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>偶是看</td>
+                    <td>25</td>
+                    <td>1800</td>
+                </tr>
+                <tr>
+                    <td>道路类</td>
+                    <td>45</td>
+                    <td>3039</td>
+                </tr>
+                <tr>
+                    <td>市科委</td>
+                    <td>56</td>
+                    <td>2900</td>
+                </tr>
+                <tr>
+                    <td>的科学</td>
+                    <td>47</td>
+                    <td>5600</td>
+                </tr>
+                <tr>
+                    <td>幸苦了</td>
+                    <td>58</td>
+                    <td>3811</td>
+                </tr>
+                <tr>
+                    <td>地理哦</td>
+                    <td>34</td>
+                    <td>5900</td>
+                </tr>
+                <tr>
+                    <td>的经历</td>
+                    <td>45</td>
+                    <td>8500</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const handler = function () {
+            const scrollArea = document.querySelector('.scrollArea');
+            //克隆节点
+            const tdCopy = scrollArea.firstElementChild.cloneNode(true);
+            // console.log(scrollArea.firstElementChild);
+            // console.log(tdCopy);
+            scrollArea.removeChild(scrollArea.firstElementChild);
+            scrollArea.appendChild(tdCopy);
+        }
+        setInterval(handler, 500)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+body {
+    /* background-color: #121212; */
+    /* 暗背景 */
+    /* color: #e0e0e0; */
+    /* 浅色文字 */
+    font-family: Arial, sans-serif;
+    /* 使用易读字体 */
+}
+
+.container .header {
+    height: 80px;
+    border-bottom: 1px #eee solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #1e1e1e; */
+    /* 比主背景略亮的头部背景 */
+    padding: 0 143.2px;
+
+}
+
+/* 确保 .header_left 和 .header_right 内的元素垂直居中 */
+.header_left,
+.header_right {
+    display: flex;
+    align-items: center;
+    /* 这将帮助内部内容垂直居中 */
+}
+
+/* 导航菜单（ul）也使用 Flexbox 来排列其子项（li） */
+.header_nav ul {
+    font-size: 20px;
+    display: flex;
+}
+
+/* 设置列表项（li）之间的间距 */
+.header_nav ul li {
+    margin-right: 15px;
+    /* 根据需要调整右侧间距 */
+}
+
+
+.top-personal-ul .personal-head img {
+    width: 35px;
+    height: 35px;
+}
+
+/* 内容区 */
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 143.2px;
+    margin-top: 20px;
+}
+
+.content .col_first {
+    width: 272.5px;
+    /* background-color: blue; */
+}
+
+/* 第一列第一模块 */
+.content .col_first .first_piece_first {
+    height: 301.8px;
+    margin-bottom: 20px;
+}
+
+.content .col_first .first_piece_first .upper {
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: greenyellow;
+}
+
+.content .col_first .first_piece_first .upper li ion-icon {
+    font-size: 40px;
+}
+
+.content .col_first .first_piece_first ul:nth-child(2) {
+    height: 186.8px;
+    background-color: #D9D9D9;
+    padding: 10px 15px;
+}
+
+.content .col_first .first_piece_first ul:nth-child(2) li {
+    margin-bottom: 1.7px;
+    height: 45px;
+    font-size: 20px;
+}
+
+.content .col_first .first_piece_first ul:nth-child(2) li ion-icon {
+    /* font-size: 30px; */
+    margin-right: 20px;
+}
+
+.content .col_first .first_piece_second {
+    height: 340px;
+    width: 272.5px;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+}
+
+.content .col_first .first_piece_second .upper {
+    background-color: #F5F5F5;
+    width: 244.5px;
+    height: 39.2px;
+    padding: 0 14px;
+    font-size: 16px;
+    border-bottom: 0.8px solid #107b78;
+    line-height: 39.2px;
+}
+
+.content .col_first .first_piece_second .down {
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.content .col_first .first_piece_second .down ion-icon {
+    margin-right: 8px;
+}
+
+.content .col_first .first_piece_third {
+    height: 300px;
+    background-color: yellowgreen;
+}
+
+.content .col_second {
+    width: 575px;
+    /* background-color: aqua; */
+}
+
+.content .col_second .second_piece_first {
+    height: 301.8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.content .col_second .second_piece_first .slider-wrapper {
+    width: 100%;
+    height: 271.6px;
+}
+
+.content .col_second .second_piece_first .slider-wrapper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.content .col_second .second_piece_first .slider-footer {
+    position: relative;
+    border-radius: 5px;
+}
+
+.content .col_second .second_piece_first .slider-footer .toggle {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: flex;
+}
+
+.content .col_second .second_piece_first .slider-footer .toggle button {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    /* border: none; */
+    border: 1px solid rgb(147, 147, 179);
+    background: rgba(92, 81, 81, 0.9);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.content .col_second .second_piece_first .slider-footer .slider-indicator {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.content .col_second .second_piece_first .slider-footer .slider-indicator li {
+    width: 8px;
+    height: 8px;
+    margin: 10px;
+    border-radius: 50%;
+    background: #cbb1b1;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.content .col_second .second_piece_first .slider-footer .slider-indicator li.active {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+}
+
+
+/*#region内容第二列第二模块start*/
+
+.content .col_second .second_piece_second {
+    height: 340px;
+    width: 575px;
+    /* background-color: #dbdbdb; */
+    margin-bottom: 20px;
+}
+
+.content .col_second .second_piece_second ul:nth-child(1) {
+    background-color: #f5f5f5;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+.content .col_second .second_piece_second ul:nth-child(1) li {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 18px;
+    border-left: 1px solid #b9b8b8;
+    border-right: 1px solid #b9b8b8;
+    text-align: center;
+}
+
+
+.content .col_second .second_piece_second ul:nth-child(2) {
+    display: flex;
+    /* 允许列表换行 */
+    flex-wrap: wrap;
+    /* 在主轴方向上均匀分布图标 */
+    justify-content: space-around;
+}
+
+.content .col_second .second_piece_second ul:nth-child(2) li {
+    display: flex;
+    /* 在主轴方向上居中图标 */
+    justify-content: center;
+    /* 在交叉轴方向上居中图标 */
+    align-items: center;
+    /* 每个图标占行宽度的25% 减去间距 */
+    flex-basis: calc(25% - 10px);
+    /* 设置图标之间的空间 */
+    margin: 5px;
+    /* 给图标添加阴影效果 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* 设置圆角 */
+    border-radius: 4px;
+
+    flex-direction: column;
+}
+
+.content .col_second .second_piece_second ul:nth-child(2) img {
+    height: 47px;
+    width: 47px;
+}
+
+
+/*#endregion内容第二列第二模块end*/
+
+.content .col_second .second_piece_third {
+    height: 300px;
+    background-color: plum;
+}
+
+
+/*#region内容第三列日历模块(第一模块)start*/
+.content .col_third .calendar-container {
+    width: 272.5px;
+    height: 301.8px;
+    margin: 0 15px;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content .col_third .calendar-container .calendar-header {
+    height: 25.8px;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #00A79D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.content .col_third .calendar-container .calendar-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.content .col_third .calendar-container .calendar {
+    margin: 0 auto;
+    width: 271.5px;
+    height: 256px;
+    /* 301.8-25.8-10*2 */
+}
+
+.content .col_third .calendar-container .calendar thead {
+    background-color: #D9D9D9;
+
+}
+
+.content .col_third .calendar-container .calendar th {
+    padding: 10px;
+}
+
+.content .col_third .calendar-container .calendar td {
+    padding: 5px;
+}
+
+
+/* 为当前月不存在的天的颜色变淡 */
+.content .col_third .calendar-container .calendar .prev-month-date {
+    color: #ccc;
+}
+
+.content .col_third .calendar-container .calendar td.today {
+    background-color: #ff6347;
+    /* Highlight for today */
+    color: #fff;
+}
+
+/*#endregion内容第三列日历模块(第一模块)end*/
+
+
+.content .col_third .third_piece_second {
+    width: 272.5px;
+    height: 340px;
+    background-color: #f5f5f5;
+    margin: 0 15px;
+    margin-bottom: 20px;
+}
+
+.content .col_third .third_piece_third {
+    height: 300px;
+    margin: 0 15px;
+    background-color: rgb(215, 117, 215);
+}
